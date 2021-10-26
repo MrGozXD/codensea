@@ -10,6 +10,7 @@ ptETAT createNewState(int x, int y, int direction)
     newState->fourmiDirection=direction;
     newState->fourmiX=x;
     newState->fourmiY=y;
+    newState->next=NULL;
 
     /*Initialisation à 0 d'un tableau à 2 dimensions => double boucle. Inutile étant donné qu'on a utilisé calloc.
     for (size_t i = 0; i < DIMX; i++)
@@ -30,6 +31,15 @@ void createNextState (ptETAT tete)
     old->next=new;
     int rebond=0;   //0 : false, 1 : true
 
+    // Balayage jusqu'à la fin de la chaîne
+    while (old->next!=NULL)
+    {
+        old=old->next;
+    }
+
+    // Et chaînage du new élément (nouvelle compétence acquise)
+    old->next=new;
+    
     
     //FSM de la gestion des rebonds : si la fourmi touche un bord du tableau, elle effectue une rotation de pi/2
 
@@ -84,16 +94,19 @@ void createNextState (ptETAT tete)
         new->fourmiDirection=(old->fourmiDirection+3)%4; // direction-1
     }
 
-    /*Actualisation du tableau*/
+    // Recopie du tableau 
     for (size_t i = 0; i < DIMX; i++)
     {
         for (size_t j = 0; j < DIMY; j++)
         {
-            old->tableau[i][j]=new->tableau[i][j];
+            new->tableau[i][j]=old->tableau[i][j];
         }
         
     }
-    new->tableau[old->fourmiX][old->fourmiY]=1-old->tableau[old->fourmiX][old->fourmiY];
+
+    // Recopie de la position initiale de la fourmi
+    new->fourmiX=old->fourmiX;
+    new->fourmiY=old->fourmiY;
 
     /*Déplacement de la fourmi*/
     switch (new->fourmiDirection)
