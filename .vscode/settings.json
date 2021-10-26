@@ -9,5 +9,6 @@
         "Log": {
             "parser": "plain"
         }
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
