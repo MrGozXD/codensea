@@ -20,5 +20,11 @@ int main(int argc, char const *argv[])
     printf("\nDonnees après le tri de noms\n\n");
     afficherDonnees(data,n);
     
+    // Tri Noms Notes
+
+    trierDonneesNoteNom(data,n);
+    printf("\nDonnees après le tri Noms Notes\n\n");
+    afficherDonnees(data,n);
+    
     return 0;
 }
