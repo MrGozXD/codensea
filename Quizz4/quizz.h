@@ -18,3 +18,4 @@ void entrerDonnees(ListStructEtu list, int s);
 void afficherDonnees(ListStructEtu list, int s);
 void trierDonnees(ListStructEtu list, int s);
 void trierDonneesNom(ListStructEtu list, int s);
+int demanderNbEtudiants(void);

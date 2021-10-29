@@ -12,3 +12,16 @@ void entrerDonnees(ListStructEtu list, int s)
 		scanf("%d",&(list[i].note));	
 	}	
 }
+
+int demanderNbEtudiants(void)
+{
+    int n;
+    printf("Nombre d'etudiants (max=%d)? : ",MAX_LIST_SIZE);
+    scanf("%d", &n);
+    while(n>MAX_LIST_SIZE)
+    {
+        printf("\nEntrez un nombre compris entre 0 et %d : ",MAX_LIST_SIZE);
+        scanf("%d", &n);
+    }
+    return n;
+}
