@@ -5,9 +5,9 @@
 
 typedef struct ninja
 {
-    char nom[NBLETTRES+1];
+    char nom[NBLETTRES + 1];
     int chakra;
-}NINJA;
+} NINJA;
 
 /* Equivalent à :
 
@@ -20,4 +20,3 @@ struct ninja
 typedef struct ninja NINJA;
 
 */
-
