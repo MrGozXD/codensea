@@ -2,8 +2,6 @@
 
 void entrerDonnees(ListStructEtu list, int s)
 {
-    
-    
 	for (int i=0;i<s;i++)
     {
 		printf("Saisie de l'étudiant %d \n",i);
@@ -11,8 +9,7 @@ void entrerDonnees(ListStructEtu list, int s)
 		printf("Nom ? : ");
 		scanf("%s",list[i].nom);
 		list[i].note=demanderNoteEtudiant();	
-	}
-    
+	} 
 }
 
 // TODO : demanderNomEtudiant, check si la chaîne rentrée est bien en dessous de  MAX_NOM_LENGTH
@@ -44,13 +41,33 @@ int demanderNoteEtudiant(void)
 }
 
 
-
 void afficherDonnees(ListStructEtu list, int s)
 {
     printf("Liste des étudiants\n|Id \t| Nom \t| Note \t|\n");
     for (size_t i = 0; i < s; i++)
     {
         printf("|%d \t| %s \t| %d \t| \n",list[i].id, list[i].nom, list[i].note);
-    }
-    
+    } 
+}
+
+void trierDonneesNote(ListStructEtu list, int s)
+{
+    int i,j;
+	StructEtu temp;
+	for (i=s-1;i>0;i--){
+		for (j=0;j<i;j++){
+			if (liste[j+1].note<liste[j].note)
+			{
+				temp=liste[j+1];
+				liste[j+1]=liste[j];
+				liste[j]=temp;
+				}
+			}
+		}
+	/* pour i allant de (taille de T)-1 à 1
+       pour j allant de 0 à i-1
+           si T[j+1] < T[j]
+               (T[j+1], T[j]) = (T[j], T[j+1])*/
+	
+	}
 }

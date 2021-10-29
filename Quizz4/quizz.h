@@ -18,7 +18,7 @@ typedef StructEtu ListStructEtu[MAX_LIST_SIZE];
 
 void entrerDonnees(ListStructEtu list, int s);
 void afficherDonnees(ListStructEtu list, int s);
-void trierDonnees(ListStructEtu list, int s);
-void trierDonneesNom(ListStructEtu list, int s);
+void trierDonneesNote(ListStructEtu list, int s);
+void trierDonneesNoteNom(ListStructEtu list, int s);
 int demanderNbEtudiants(void);
 int demanderNoteEtudiant(void);

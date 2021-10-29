@@ -8,7 +8,7 @@ int main(int argc, char const *argv[])
     entrerDonnees(data, n);
     printf("\nDonnees avant le tri\n\n");
     afficherDonnees(data,n);
-    trierDonnees(data,n);
+    trierDonneesNote(data,n);
     printf("\nDonnees après le tri\n\n");
     afficherDonnees(data,n);
     return 0;
