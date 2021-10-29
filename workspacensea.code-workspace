@@ -8,6 +8,7 @@
 		"files.associations": {
 			"*.md": "arm",
 			"langton.h": "c"
-		}
+		},
+		"cSpell.language": "fr-FR,fr"
 	}
 }

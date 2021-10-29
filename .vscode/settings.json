@@ -10,5 +10,28 @@
             "parser": "plain"
         }
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "cSpell.words": [
+        "acquises",
+        "Ajouter",
+        "Améliorer",
+        "Chaînage",
+        "Compétences",
+        "Comprendre",
+        "création",
+        "d'éléments",
+        "d'itérations",
+        "d'une",
+        "dans",
+        "demandé",
+        "fonction",
+        "Fonction",
+        "fonctionnement",
+        "l'utilisateur",
+        "nombre",
+        "printf",
+        "Révision",
+        "scanf",
+        "souhaite"
+    ]
 }
