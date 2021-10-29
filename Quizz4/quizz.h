@@ -12,7 +12,7 @@ typedef struct etudiant
     int id;
     char nom[MAX_NOM_LENGTH];
     int note;
-}StructEtu;
+} StructEtu;
 
 typedef StructEtu ListStructEtu[MAX_LIST_SIZE];
 
