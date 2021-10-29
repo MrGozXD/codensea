@@ -4,6 +4,8 @@
 
 #define MAX_NOM_LENGTH 50
 #define MAX_LIST_SIZE 20
+#define MAX_NOTE 20
+#define MIN_NOTE 0
 
 typedef struct etudiant
 {
@@ -19,3 +21,4 @@ void afficherDonnees(ListStructEtu list, int s);
 void trierDonnees(ListStructEtu list, int s);
 void trierDonneesNom(ListStructEtu list, int s);
 int demanderNbEtudiants(void);
+int demanderNoteEtudiant(void);
