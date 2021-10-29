@@ -73,3 +73,27 @@ void trierDonneesNote(ListStructEtu list, int s)
 	
 	}
 }
+
+void trierDonneesNom(ListStructEtu list, int s)
+{
+    int i,j;
+	StructEtu temp;
+	for (i=s-1;i>0;i--)
+    {
+		for (j=0;j<i;j++)
+        {
+			if (strcmp(list[j+1].nom,list[j].nom)<0)
+			{
+				temp=list[j+1];
+				list[j+1]=list[j];
+				list[j]=temp;
+				
+			}
+		}
+	/* pour i allant de (taille de T)-1 à 1
+       pour j allant de 0 à i-1
+           si T[j+1] < T[j]
+               (T[j+1], T[j]) = (T[j], T[j+1])*/
+	
+	}
+}
