@@ -3,9 +3,8 @@
 NINJA *createNINJA(char name[], int chakra, NINJA *p, NINJA *n)
 {
     // Création d'un ninja et allocation dynamique
-    NINJA *newNinja = calloc(1, sizeof(NINJA));
+    NINJA *newNinja = (NINJA *)malloc(1, sizeof(NINJA)); // Cast le type de pointeur devant malloc/calloc
 
-    //newNinja->nom=name;
     strcpy(newNinja->nom, name);
     newNinja->chakra = chakra;
     newNinja->previous = p;

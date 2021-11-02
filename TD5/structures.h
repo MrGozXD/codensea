@@ -26,6 +26,14 @@ typedef struct ninja NINJA;
 
 */
 
+typedef struct clan
+{
+    char nom[NBLETTRES + 1];
+    int nombre;
+    NINJA *hokage;
+    NINJA *genin;
+} CLAN;
+
 NINJA *createNINJA(char[], int, NINJA *, NINJA *);
 void dispNinja(NINJA);     // Affichage ninja statique
 void dispNinjaPt(NINJA *); // Affichage ninja dynamique
