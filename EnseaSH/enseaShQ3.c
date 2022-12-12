@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
         const char *exitMessage="Bye bye! \n";
         
 
-        if (strcmp(command, "exit") == 0 || strcmp(command, '\001') == 0 )
+        if (strcmp(command, "exit") == 0)
         {
             ssize_t bytesWritten2=write(STDOUT_FILENO, exitMessage, strlen(exitMessage));
             if (bytesWritten2==-1) {
