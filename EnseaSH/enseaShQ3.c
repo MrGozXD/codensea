@@ -8,13 +8,19 @@
 
 int main(int argc, char *argv[])
 {
-
+    const char *welcomeMessage = "Welcome to ENSEA Tiny Shell. \n"
+                                     "To quit, type 'exit'. \n";
+    const char *prompt = "enseash % \n";
+    const char *exitMessage="Bye bye! \n";
+    const char 
+    char command[BUFFER_SIZE];
     while (1)
     {
-        // Welcome message
-        const char *welcomeMessage = "Welcome to ENSEA Tiny Shell. \n"
-                                     "To quit, type 'exit'. \n";
+        
+        // clear command[] buffer
+        memset(command, 0, BUFFER_SIZE);
 
+        // Welcome message
         ssize_t bytesWritten = write(STDOUT_FILENO, welcomeMessage, strlen(welcomeMessage));
         if (bytesWritten == -1)
         {
@@ -23,7 +29,7 @@ int main(int argc, char *argv[])
         }
 
         // Prompt
-        const char *prompt = "enseash % \n";
+        
         bytesWritten = write(STDOUT_FILENO, prompt, strlen(prompt));
         if (bytesWritten == -1)
         {
@@ -31,8 +37,10 @@ int main(int argc, char *argv[])
             exit(EXIT_FAILURE);
         }
 
+        
+
         // Read user input
-        char command[BUFFER_SIZE];
+        
         ssize_t bytesRead = read(STDIN_FILENO, command, BUFFER_SIZE);
         if (bytesRead == -1)
         {
@@ -41,13 +49,13 @@ int main(int argc, char *argv[])
         }
 
         // Remove the newline character at the end of the input
-        command[bytesRead - 1] = '\0';
+        //  command[bytesRead - 1] = '\0'; !! this is not working, it doesn't cover the case command="\0" !!
+        command[strcspn(command,"\n")]=0;
 
         // Check if the user wants to quit
-        const char *exitMessage="Bye bye! \n";
         
 
-        if (strcmp(command, "exit") == 0)
+        if (strcmp(command, "exit") == 0 || strcmp(command, "\0") == 0)
         {
             ssize_t bytesWritten2=write(STDOUT_FILENO, exitMessage, strlen(exitMessage));
             if (bytesWritten2==-1) {
@@ -56,9 +64,8 @@ int main(int argc, char *argv[])
             }
             exit(EXIT_SUCCESS);
         }
-        
 
-        // execute the command with execlp and fork it
+        // Execute the command with execlp in a child process
         pid_t pid = fork();
 
         if (pid == -1)

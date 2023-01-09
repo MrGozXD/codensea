@@ -8,13 +8,15 @@
 
 int main(int argc, char *argv[])
 {
+    const char *welcomeMessage = "Welcome to ENSEA Tiny Shell. \n"
+                                     "To quit, type 'exit'. \n";
+    const char *prompt = "enseash % ";
+    char command[BUFFER_SIZE];
 
     while (1)
     {
         // Welcome message
-        const char *welcomeMessage = "Welcome to ENSEA Tiny Shell. \n"
-                                     "To quit, type 'exit'. \n";
-
+        
         ssize_t bytesWritten = write(STDOUT_FILENO, welcomeMessage, strlen(welcomeMessage));
         if (bytesWritten == -1)
         {
@@ -23,7 +25,7 @@ int main(int argc, char *argv[])
         }
 
         // Prompt
-        const char *prompt = "enseash % ";
+        
         bytesWritten = write(STDOUT_FILENO, prompt, strlen(prompt));
         if (bytesWritten == -1)
         {
@@ -32,7 +34,7 @@ int main(int argc, char *argv[])
         }
 
         // Read user input
-        char command[BUFFER_SIZE];
+        
         ssize_t bytesRead = read(STDIN_FILENO, command, BUFFER_SIZE);
         if (bytesRead == -1)
         {
@@ -41,10 +43,12 @@ int main(int argc, char *argv[])
         }
 
         // Remove the newline character at the end of the input
-        command[bytesRead - 1] = '\0';
+        //command[bytesRead - 1] = '\0';
+        // remove the newline character at the end of the input
+        command[strcspn(command,"\n")]=0;
 
         // Check if the user wants to quit
-        if (strcmp(command, "exit") == 0 || strcmp(command, "\001") == 0 )
+        if (strcmp(command, "exit") == 0 || strcmp(command, "\001") == 0 ) 
         {
             exit(EXIT_SUCCESS);
         }
