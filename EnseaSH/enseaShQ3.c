@@ -8,6 +8,8 @@
 #define BUFFER_SIZE 256
 #define MAX_SHELL_MSG_SIZE 128
 
+// TODO : Refactor as question 3 (exit/ctrl+d) , remove time.h and methods
+
 int main(int argc, char *argv[])
 {
     const char *welcomeMessage = "Welcome to ENSEA Tiny Shell. \n"

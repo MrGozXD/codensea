@@ -6,6 +6,8 @@
 
 #define BUFFER_SIZE 256
 
+//TODO : refactor as question 2, replace system by fork
+
 int main(int argc, char *argv[])
 {
     const char *welcomeMessage = "Welcome to ENSEA Tiny Shell. \n"
@@ -44,11 +46,10 @@ int main(int argc, char *argv[])
 
         // Remove the newline character at the end of the input
         //command[bytesRead - 1] = '\0';
-        // remove the newline character at the end of the input
         command[strcspn(command,"\n")]=0;
 
         // Check if the user wants to quit
-        if (strcmp(command, "exit") == 0 || strcmp(command, "\001") == 0 ) 
+        if (strcmp(command, "exit") == 0 || strcmp(command, "\00") == 0 ) 
         {
             exit(EXIT_SUCCESS);
         }

@@ -5,6 +5,8 @@
 
 #define BUFFER_SIZE 256
 
+// TODO : rewrite comments
+
 int main(int argc, char *argv[]) {
     
     // Welcome message
