@@ -10,6 +10,6 @@
 #define WELCOME_MSG "Welcome to EnseaSH, the best shell ever created ! \nTo quit type 'exit' \n"
 #define QUIT_MSG "Bye bye ! \n"
 
-void dispMessage(char * message);
+void dispMessage(char *message);
 char *readUserInput();
 void executeCommand(char *command);

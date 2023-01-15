@@ -3,8 +3,9 @@
 int main(int argc, char const *argv[])
 {
     char *command;
-    dispMessage(WELCOME_MSG); 
-    while(1){
+    dispMessage(WELCOME_MSG);
+    while (1)
+    {
         command = readUserInput();
         if (command != NULL)
         {
@@ -13,4 +14,3 @@ int main(int argc, char const *argv[])
     }
     return 0;
 }
-

@@ -52,5 +52,26 @@ void executeCommand(char *command)
     else
     {
         // parent process
+        int status;
+        waitpid(pid, &status, 0);
+        char str[100];
+        if (WIFEXITED(status))
+        {
+            sprintf(str, "enseaSH [exit : %d]", status);
+            strcat(str, " % ");
+            write(STDOUT_FILENO, str, strlen(str));
+        }
+        else if (WIFSIGNALED(status))
+        {
+            sprintf(str, "enseaSH [signal : %d]", status);
+            strcat(str, " % ");
+            write(STDOUT_FILENO, str, strlen(str));
+        }
+        else
+        {
+            sprintf(str, "enseaSH [unknown : %d]", status);
+            strcat(str, " % ");
+            write(STDOUT_FILENO, str, strlen(str));
+        }
     }
 }
