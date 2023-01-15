@@ -4,7 +4,7 @@ int main(int argc, char const *argv[])
 {
     char *command;
     // TODO : define en const les messages
-    dispMessage("Welcome to ENSEA Tiny Shell. \nTo quit, type 'exit'. \n"); 
+    dispMessage(WELCOME_MSG); 
     while(1){
         command = readCommand();
         if (command != NULL)
@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
             // TODO : execute command
         }
     }
-    dispMessage("Bye bye !\n"); 
+    dispMessage(QUIT_MSG); 
     return 0;
 }
 

@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch helloworld",
+            "request": "launch",
+            "mainClass": "helloworld",
+            "projectName": "codensea_abd01c9c"
+        },
+        {
             "name": "gcc - Générer et déboguer le fichier actif",
             "type": "cppdbg",
             "request": "launch",

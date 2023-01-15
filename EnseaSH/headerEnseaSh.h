@@ -7,7 +7,8 @@
 
 #define BUFFER_SIZE 256
 #define MAX_SHELL_MSG_SIZE 128
-
+#define WELCOME_MSG "Welcome to EnseaSH, the best shell ever created ! \nTo quit type 'exit' \n"
+#define QUIT_MSG "Bye bye ! \n"
 
 void dispMessage(char * message);
 char *readUserInput();
