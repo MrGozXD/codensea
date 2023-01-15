@@ -5,7 +5,7 @@
 **Objectives**: Develop a tiny shell, that displays exit codes and execution times of launched
 programs.
 
-- [x] Q1: Display a welcome message, followed by a simple prompt
+- [x] Q1: Display a welcome message, followed by a simple prompt (everything is in a single file, refactoring in next questions)
 - [x] Q2: Execution of the entered command and return to the prompt (REPL: read–eval–print
 loop)
 - [x] Q3: Management of the shell output with the command "exit" or with <kbd>Ctrl</kbd> + <kbd>D</kbd>
@@ -16,4 +16,4 @@ loop)
 - [] Q8: Management of pipe redirection with '|'
 - [] Q9: Return to the prompt immediately with '&' (execution of programs in the background)
 
-*realised by* **Yannis PELOUTIER** *and* **Chloé GABARREN**
+*realised by* **Yannis PELOUTIER** *and* **Chloé GABARREN** **2G1 TD2 TP3**
