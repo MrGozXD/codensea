@@ -54,7 +54,7 @@ void executeCommand(char *command)
         // parent process
         int status;
         waitpid(pid, &status, 0);
-        char str[100];
+        char str[MAX_SHELL_MSG_SIZE];
         if (WIFEXITED(status))
         {
             sprintf(str, "enseaSH [exit : %d]", status);
