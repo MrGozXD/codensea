@@ -1,15 +1,14 @@
-#include "headerEnseaSH.h"
+#include "headerEnseaSh.h"
 
 int main(int argc, char const *argv[])
 {
     char *command;
-    // TODO : define en const les messages
     dispMessage(WELCOME_MSG); 
     while(1){
-        command = readCommand();
+        command = readUserInput();
         if (command != NULL)
         {
-            // TODO : execute command
+            executeCommand(command);
         }
     }
     dispMessage(QUIT_MSG); 

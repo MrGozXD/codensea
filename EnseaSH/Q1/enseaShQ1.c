@@ -5,11 +5,9 @@
 
 #define BUFFER_SIZE 256
 
-// TODO : rewrite comments
 
 int main(int argc, char *argv[]) {
     
-    // Welcome message
     const char *welcomeMessage="Welcome to ENSEA Tiny Shell. \n"
                               "To quit, type 'exit'. \n";
     
@@ -19,7 +17,6 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Prompt
     const char *prompt="enseash % ";
     bytesWritten=write(STDOUT_FILENO, prompt, strlen(prompt));
     if (bytesWritten==-1) {

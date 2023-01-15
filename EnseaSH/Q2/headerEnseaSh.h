@@ -12,3 +12,4 @@
 
 void dispMessage(char * message);
 char *readUserInput();
+void executeCommand(char *command);
