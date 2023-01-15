@@ -12,8 +12,8 @@ loop)
 - [x] Q4: Display the return code (or signal) of the previous command in the prompt
 - [x] Q5: Measurement of the command execution time using the call clock_gettime()
 - [ ] Q6: Execution of a complex command (with arguments)
-- [] Q7: Management of redirections to **stdin** and **stdout** with '<' and '>'
-- [] Q8: Management of pipe redirection with '|'
-- [] Q9: Return to the prompt immediately with '&' (execution of programs in the background)
+- [ ] Q7: Management of redirections to **stdin** and **stdout** with '<' and '>'
+- [ ] Q8: Management of pipe redirection with '|'
+- [ ] Q9: Return to the prompt immediately with '&' (execution of programs in the background)
 
 *realised by* **Yannis PELOUTIER** *and* **Chloé GABARREN** **2G1 TD2 TP3**
