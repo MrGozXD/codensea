@@ -34,5 +34,10 @@
         "Révision",
         "scanf",
         "souhaite"
-    ]
+    ],
+    "files.associations": {
+        "*.md": "arm",
+        "*.html": "html",
+        "unistd.h": "c"
+    }
 }
