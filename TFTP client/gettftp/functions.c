@@ -34,3 +34,16 @@ void dispGetNameInfoFailed(int result)
     printf("Error message: %s\n", errorMessageNameInfo);
     exit(1);
 }
+
+void didSucceed(int result, char *command)
+{
+    if (result == -1)
+    {
+        printf("Error: %s failed\n", command);
+        exit(1);
+    }
+    else
+    {
+        printf("Success: %s succeeded\n", command);
+    }
+}
