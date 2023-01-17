@@ -1,5 +1,6 @@
 #include "header.h"
 
+#define MODE "octet"
 
 int main(int argc, char const *argv[])
 {
@@ -12,8 +13,11 @@ int main(int argc, char const *argv[])
     char const *port=argv[3];
     struct addrinfo hints;
     memset(&hints, 0, sizeof(hints));
-    hints.ai_protocol=IPPROTO_TCP;
-    hints.ai_socktype=SOCK_STREAM;
+    hints.ai_family=AF_UNSPEC;
+    hints.ai_protocol=IPPROTO_UDP;
+    hints.ai_socktype=SOCK_DGRAM;
+    
+    
     
    
     struct addrinfo *res;
@@ -47,28 +51,48 @@ int main(int argc, char const *argv[])
     int socketFD=socket(res->ai_family, res->ai_socktype, res->ai_protocol);
     didSucceed(socketFD, "socket");
 
-    int resultConnect=connect(socketFD, res->ai_addr, res->ai_addrlen);
-    didSucceed(resultConnect, "connect");
+    //int resultConnect=connect(socketFD, res->ai_addr, res->ai_addrlen);
+    //didSucceed(resultConnect, "connect");
 
+   // Read Request Packet FTP 
     /*
+    int count = 0;
     char buffer[BUFFER_SIZE];
-    memset(buffer, 0, sizeof(buffer));
-    buffer[0]=0;
-    buffer[1]=1;
-    strcpy(buffer+2, file);
-    buffer[strlen(file)+2]=0;
-    buffer[strlen(file)+3]='o';
-    buffer[strlen(file)+4]='c';
-    buffer[strlen(file)+5]='t';
-    buffer[strlen(file)+6]='e';
-    buffer[strlen(file)+7]='t';
-    buffer[strlen(file)+8]=0;
+    buffer[count++]=0;
+    buffer[count++]=1;
+    strcpy(&buffer[count], file);
+    count+=strlen(file);
+    buffer[count]=0;
 
-    int resultSend=send(socketFD, buffer, strlen(file)+9, 0);
-    didSucceed(resultSend, "send");
+    strcpy(&buffer[count+1],MODE);
+    count+=strlen(MODE)+1;
+    buffer[count]=0;
 
-    int resultRecv=recv(socketFD, buffer, BUFFER_SIZE, 0);
-    didSucceed(resultRecv, "recv");
+    for (int i = 0; i < count+1; i++)
+    {
+        printf("buffer[%d]: %d\n", i, buffer[i]);
+    }
+    */
+    
+    char *buffer=setBuffer(file, MODE, RRQ);
+    printf("buffer: %s\n", buffer);
+    int sizeBuffer=strlen(file)+strlen(MODE)+4;
+    //int resultSendTo=sendto(socketFD, buffer, count+1,res->ai_flags, res->ai_addr, res->ai_addrlen);
+    int resultSendTo=sendto(socketFD, buffer, sizeBuffer,res->ai_flags, res->ai_addr, res->ai_addrlen);
+
+    if(resultSendTo <0)
+    {
+        perror("sendto");
+        exit(EXIT_FAILURE);
+    }
+    printf("Coucou\n");
+    printf("resultSendTo: %d\n", resultSendTo);
+    didSucceed(resultSendTo, "sendto");
+
+    //int resultRecvFrom=recvfrom(socketFD, buffer, BUFFER_SIZE, 0, res->ai_addr, &res->ai_addrlen);
+/*
+    int resultRecv=recvfrom(socketFD, buffer, BUFFER_SIZE, 0);
+    didSucceed(resultRecv, "recvfrom");
 
     int blockNumber=1;
 
@@ -93,8 +117,9 @@ int main(int argc, char const *argv[])
         didSucceed(resultWrite, "write");
 
         blockNumber++;
+    
     }
-    */
+   */ 
 }
 
 

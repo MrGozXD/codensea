@@ -11,10 +11,12 @@
 #define MAX_BLOCK_SIZE 512
 #define BUFFER_SIZE 256
 #define MAX_SHELL_MSG_SIZE 128
-
+#define MODE "octet"
+#define RRQ 1
 
 void dispGetAddrInfoFailed(int result);
 void dispGetAddrInfoSucceeded(struct addrinfo *res);
 void dispGetNameInfoSucceeded(char *host, char *serv);
 void dispGetNameInfoFailed(int result);
 void didSucceed(int result, char *command);
+char *setBuffer(char const *file, char *mode, int RRQorWRQ);

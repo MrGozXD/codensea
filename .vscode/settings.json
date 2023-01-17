@@ -38,6 +38,7 @@
     "files.associations": {
         "*.md": "arm",
         "*.html": "html",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "socket.h": "c"
     }
 }
