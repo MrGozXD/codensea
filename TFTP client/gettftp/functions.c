@@ -46,6 +46,7 @@ void didSucceed(int result, char *command)
     if (result == -1)
     {
         printf("Error: %s failed\n", command);
+        //perror(command);
         exit(1);
     }
     else
@@ -83,11 +84,22 @@ char *setBuffer(char const*file, char *mode, int RRQorWRQ)
     strcpy(buffer + 2 + strlen(file) + 1, MODE);
 
     // debug function
+    /*
     for (int i = 0; i < (int)strlen(file) + 9; i++)
     {
         printf("buffer[%d]: %d\n", i, buffer[i]);
     }
     printf("strlen(buffer): %d\n", strlen(buffer));
+    */
+    return buffer;
+}
 
+char *setACKBuffer(int blockNumber)
+{
+    char *buffer = (char *)malloc(BUFFER_SIZE);
+    buffer[0] = 0;
+    buffer[1] = 4;
+    buffer[2] = blockNumber >> 8;
+    buffer[3] = blockNumber & 0xFF;
     return buffer;
 }
