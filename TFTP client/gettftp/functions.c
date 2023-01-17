@@ -57,27 +57,7 @@ void didSucceed(int result, char *command)
 
 char *setBuffer(char const*file, char *mode, int RRQorWRQ)
 {
-    /*
-    int count = 0;
-    char buffer[BUFFER_SIZE];
-    buffer[count++]=0;
-    buffer[count++]=1;
-    strcpy(&buffer[count], file);
-    count+=strlen(file);
-    buffer[count]=0;
-
-    strcpy(&buffer[count+1],mode);
-    count+=strlen(mode)+1;
-    buffer[count]=0;
-
-    for (int i = 0; i < count+1; i++)
-    {
-        printf("buffer[%d]: %d\n", i, buffer[i]);
-    }
-    printf("count: %d\n", count);
-    */
     char *buffer = (char *)malloc(BUFFER_SIZE);
-
     buffer[0] = 0;
     buffer[1] = RRQorWRQ;
     strcpy(buffer + 2, file);
@@ -103,3 +83,54 @@ char *setACKBuffer(int blockNumber)
     buffer[3] = blockNumber & 0xFF;
     return buffer;
 }
+
+char *getDataFromBuffer(char *buffer)
+{
+    char *data=(char*)malloc(BUFFER_SIZE);
+    for (int i = 0; i < BUFFER_SIZE+1; i++)
+    {
+        data[i]=buffer[i+4];
+    }
+    return data;
+    
+}
+
+void receivedData(char Opcode)
+{
+    if (Opcode!=DATA)
+    {
+        printf("Received unexpected packet type: %d\n", Opcode);
+    }
+    else
+    {
+        printf("Received data");
+    }
+    
+}
+
+void receivedACK(char Opcode)
+{
+    if (Opcode!=ACK)
+    {
+        printf("Received unexpected packet type: %d\n", Opcode);
+    }
+    else
+    {
+        printf("Received ACK");
+    }
+    
+}
+/* TODO
+void receivedDataOrACK(char Opcode)
+{
+    switch (expression)
+    {
+    case /* constant-expression */:
+        /* code */
+        break;
+    
+    default:
+        break;
+    }
+}
+*/
