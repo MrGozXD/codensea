@@ -8,9 +8,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 
-#define MAX_BLOCK_SIZE 512
 #define BUFFER_SIZE 512
-#define MAX_SHELL_MSG_SIZE 128
 #define MODE "octet"
 #define RRQ 1
 
