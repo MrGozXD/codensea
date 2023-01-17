@@ -120,17 +120,20 @@ void receivedACK(char Opcode)
     }
     
 }
-/* TODO
+
 void receivedDataOrACK(char Opcode)
 {
-    switch (expression)
+    if (Opcode==DATA)
     {
-    case /* constant-expression */:
-        /* code */
-        break;
-    
-    default:
-        break;
+        printf("Received data\n");
     }
+    else if (Opcode==ACK)
+    {
+        printf("Received \n");
+    }
+    else
+    {
+        printf("Received unexpected packet type: %d\n", Opcode);
+    }
+    
 }
-*/

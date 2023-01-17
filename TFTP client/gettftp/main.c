@@ -101,7 +101,7 @@ int main(int argc, char const *argv[])
     int resultRecvFrom = recvfrom(socketFD, buffer, BUFFER_SIZE, res->ai_flags, res->ai_addr, &res->ai_addrlen);
     printf("resultRecvFrom: %d\n", resultRecvFrom);
     didSucceed(resultRecvFrom, "recvfrom");
-    receivedData(buffer[1]);
+    receivedDataOrACK(buffer[1]);
     // debug
     /*
     for (int i = 0; i < resultRecvFrom+5; i++)
@@ -121,7 +121,7 @@ int main(int argc, char const *argv[])
         resultRecvFrom = recvfrom(socketFD, buffer, BUFFER_SIZE, res->ai_flags, res->ai_addr, &res->ai_addrlen);
         printf("resultRecvFrom: %d\n", resultRecvFrom);
         didSucceed(resultRecvFrom, "recvfrom");
-        receivedData(buffer[1]);
+        receivedDataOrACK(buffer[1]);
     }
 
     // TODO : function to retrieve the data from the buffer

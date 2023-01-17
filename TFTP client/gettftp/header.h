@@ -19,6 +19,7 @@ void dispGetAddrInfoSucceeded(struct addrinfo *res);
 void dispGetAddrInfoFailed(int result);
 void dispGetNameInfoSucceeded(char *host, char *serv);
 void dispGetNameInfoFailed(int result);
+//void getInfoSucceeded(struct addrinfo *res, char *host, char *serv, int result);
 void didSucceed(int result, char *command);
 char *setBuffer(char const *file, char *mode, int RRQorWRQ);
 char *setACKBuffer(int blockNumber);
