@@ -24,6 +24,6 @@ void didSucceed(int result, char *command);
 char *setBuffer(char const *file, char *mode, int RRQorWRQ);
 char *setACKBuffer(int blockNumber);
 char *getDataFromBuffer(char *buffer);
-void receivedData(char Opcode);
-void receivedACK(char Opcode);
+//void receivedData(char Opcode);
+//void receivedACK(char Opcode);
 void receivedDataOrACK(char Opcode);
