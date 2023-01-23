@@ -7,10 +7,10 @@
 -[x] gettftp : get a file from the server
 -[ ] puttftp : send a file to the server
 
-###TFTP protocol: 
+### TFTP protocol: 
 https://tools.ietf.org/html/rfc1350
 
-###How to use it 
+### How to use it 
 
 1. From the terminal, go to the directory *server* 
 2. Start your local server with the command ./go.sh (port 1069)
