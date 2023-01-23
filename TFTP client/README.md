@@ -4,7 +4,7 @@
 
 **Objectives**: Develop a client programm that should be able to exchange files with a server using the TFTP protocol.
 
--[x] gettftp : get a file from the server
+- [x] gettftp : get a file from the server
 -[ ] puttftp : send a file to the server
 
 ### TFTP protocol: 
