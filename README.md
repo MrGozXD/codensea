@@ -1,5 +1,6 @@
 # codensea
 
 TD/TP de C du semestre 5
+TD/TP de majeure info semestre 7
 
-Si t'es en 1A/1B et que tu lis ce message, c'est que t'es vraiment dans la merde pour tes TD
+Coming soon : TP de Signal S5 et Majeure Signal S7
